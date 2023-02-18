@@ -21,7 +21,6 @@ func (n NotasPai) PrintPrimeiro() {
 }
 
 
-
 type NotasFilho struct {
 	NotasPai
 }
