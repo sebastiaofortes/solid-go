@@ -1,8 +1,8 @@
 package interfacesegregation
 
-type UserService interface {
-	BuscarProdutos(nome string)
-	AdicionarAoCarrinho(productId int32)
+type UsuarioService interface {
+	BuscarProdutos(nome string) string
+	AdicionarAoCarrinho(productId int32) bool
 	FormaDePagamento(forma string)
 	GetNivelUsuario()
 	//
@@ -16,16 +16,15 @@ type Visitante struct {
 	//
 }
 
-func (v *Visitante) BuscarProdutos(nome string) {
+func (v *Visitante) BuscarProdutos(nome string) string {
 	//
 	// código
 	//
+	return "product json"
 }
 
-func (v *Visitante) AdicionarAoCarrinho(productId int32) {
-	//
-	// código
-	//
+func (v *Visitante) AdicionarAoCarrinho(productId int32) bool {
+	return false
 }
 
 func (v* Visitante) FormaDePagamento(forma string) {
@@ -43,16 +42,18 @@ type UsuarioLogado struct {
 	//
 }
 
-func (u *UsuarioLogado) BuscarProdutos(nome string) {
+func (u *UsuarioLogado) BuscarProdutos(nome string) string {
 	//
 	// código
 	//
+	return "product json"
 }
 
-func (u *UsuarioLogado) AdicionarAoCarrinho(productId int32) {
+func (u *UsuarioLogado) AdicionarAoCarrinho(productId int32) bool {
 	//
 	// código
 	//
+	return true
 }
 
 func (u *UsuarioLogado) FormaDePagamento(forma string) {
