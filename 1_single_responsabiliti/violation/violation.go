@@ -2,20 +2,19 @@ package singleresponsabiliti
 
 import (
 	"database/sql"
-	"net/http"
 )
 
-func Incorrect(resposta http.ResponseWriter, requisicao *http.Request) {
+func ProductListDao() []string {
 	// crio a conexao com o banco
 	conexao, _ := sql.Open("mysql", "datasource")
-	
+
 	// procuro dados no banco
-	consulta, _ := conexao.Query("SELECT * FROM products")
+	consulta, _ := conexao.Query("SELECT 'name' FROM products")
 
 	// guardo resultado da procura em uma variável
-	var resultado []byte 
+	var resultado []string
 	consulta.Scan(&resultado)
 
-	// envio os dados para o cliente (navegador)
-	resposta.Write(resultado)
+	// retorna uma lista de produtos
+	return resultado
 }

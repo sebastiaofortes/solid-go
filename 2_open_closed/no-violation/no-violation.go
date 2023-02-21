@@ -1,6 +1,6 @@
 package openclosed
 
-type InterfacetEmail interface {
+type Email interface {
 	Send()
 }
 
@@ -24,11 +24,11 @@ type SubHtml struct {
 	HtmlEmail
 }
 
-func CorrectSendMessage(email InterfacetEmail) {
+func SendMessage(email Email) {
 	email.Send()
 }
 
-func CorrectCreateEmail() {
+func CreateEmail() {
 	htmlEmail := new(HtmlEmail)
 	htmlEmail.Message = "<h1> Hello </h1>"
 
@@ -38,8 +38,8 @@ func CorrectCreateEmail() {
 	SubHtml := new(SubHtml)
 	SubHtml.Message = "<h1> Hello </h1>"
 
-	CorrectSendMessage(txtEmail)
-	CorrectSendMessage(htmlEmail)
-	CorrectSendMessage(SubHtml)
+	SendMessage(txtEmail)
+	SendMessage(htmlEmail)
+	SendMessage(SubHtml)
 
 }

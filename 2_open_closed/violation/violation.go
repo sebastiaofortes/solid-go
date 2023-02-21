@@ -6,11 +6,11 @@ type Email struct {
 }
 
 func (e Email) SendrHtml() {
-
+	//send email in html format
 }
 
 func (e Email) SendTxt() {
-
+	//send email in txt format
 }
 
 func SendMessage(email Email) {
