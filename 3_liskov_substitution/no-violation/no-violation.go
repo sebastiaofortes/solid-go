@@ -1,12 +1,10 @@
 package liskovsubstitution
 
-import "log"
-
-type NotasPai struct {
+type Notas struct {
 	lis []float32
 }
 
-func (n NotasPai) Filtrar(f float32) []float32 {
+func (n *Notas) FiltrarAcima(f float32) []float32 {
 	var result []float32
 	for i := range n.lis {
 		if n.lis[i] > f {
@@ -16,18 +14,7 @@ func (n NotasPai) Filtrar(f float32) []float32 {
 	return result
 }
 
-func (n NotasPai) PrintPrimeiro() {
-	log.Println(n.Filtrar(1)[0])
-}
-
-
-
-type NotasFilho struct {
-	NotasPai
-}
-
-
-func (n NotasFilho) SubFiltrar(f float32) []float32 {
+func (n *Notas) FiltrarAbaixo(f float32) []float32 {
 	var result []float32
 	for i := range n.lis {
 		if n.lis[i] < f {
@@ -37,31 +24,32 @@ func (n NotasFilho) SubFiltrar(f float32) []float32 {
 	return result
 }
 
-func Situacão1() {
-	//quero obter o primeiro elemento maior que determinado número
-	a := new(NotasPai)
-	a.lis = []float32{1,2, 3,4,5}
-	a.lis = a.Filtrar(1)
-
-	a.PrintPrimeiro()
-
+type SubNotas struct {
+	Notas
 }
 
-func Situacão2() {
-	//quero obter a lista de elementos menor que detarminado númoro
-	b := new(NotasFilho)
-	b.lis = []float32{1,2, 3,4,5}
-	b.lis = b.SubFiltrar(3)
-
-	b.PrintPrimeiro()
-
+// overide
+func (n *SubNotas) FiltrarAcima(f float32) []float32 {
+	var result []float32
+	for i := range n.lis {
+		if n.lis[i] > f {
+			result = append(result, n.lis[i])
+		}
+	}
+	return result
 }
 
-func Situacão3() {
-	//aplicando filho onde está o pai
-	a := new(NotasFilho)
-	a.lis = []float32{1,2, 3,4,5}
-	a.lis = a.Filtrar(1)
+// overide
+func (n *SubNotas) FiltrarAbaixo(f float32) []float32 {
+	var result []float32
+	for i := range n.lis {
+		if n.lis[i] < f {
+			result = append(result, n.lis[i])
+		}
+	}
+	return result
+}
 
-	a.PrintPrimeiro()
+func (n *SubNotas) SetList(l []float32){
+	n.lis = l
 }

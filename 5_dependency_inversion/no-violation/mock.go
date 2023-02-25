@@ -12,7 +12,7 @@ type UserRepositoryMock struct {
 }
 
 // GetByID provides a mock function with given fields: id
-func (_m *UserRepositoryMock) GetByID(id uint) (*User, error) {
+func (_m *UserRepositoryMock) GetUserByID(id uint) (*User, error) {
 	ret := _m.Called(id)
 
 	var r0 *User

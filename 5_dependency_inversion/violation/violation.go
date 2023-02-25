@@ -9,7 +9,7 @@ import (
 // camada de domínio
 
 type User struct {
-	ID uint `gorm:"primaryKey;column:id"`
+	ID uint
 	// some fields
 }
 
@@ -25,7 +25,7 @@ func NewUserRepository(db *gorm.DB) *UserRepository {
 	}
 }
 
-func (r *UserRepository) GetByID(id uint) (*User, error) {
+func (r *UserRepository) GetUserByID(id uint) (*User, error) {
 	user := User{}
 	err := r.db.Where("id = ?", id).First(&user).Error
 	if err != nil {
@@ -48,8 +48,8 @@ func NewEmailService(repository *UserRepository) *EmailService {
 	}
 }
 
-func (s *EmailService) SendRegistrationEmail(userID uint) error {
-	user, err := s.repository.GetByID(userID)
+func (s *EmailService) SendEmailToUser(userID uint) error {
+	user, err := s.repository.GetUserByID(userID)
 	if err != nil {
 		return err
 	}

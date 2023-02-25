@@ -26,7 +26,7 @@ func TestUserRepository_GetById(t *testing.T) {
 
 	mock.ExpectQuery("mocked sql querie")
 
-	r, err := repository.GetByID(11)
+	r, err := repository.GetUserByID(11)
 
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -50,7 +50,7 @@ func TestEmailService_SendRegistrationEmail(t *testing.T) {
 
 	mock.ExpectQuery("mocked sql querie")
 
-	r := service.SendRegistrationEmail(13)
+	r := service.SendEmailToUser(13)
 
 	assert.NoError(t, r)
 }

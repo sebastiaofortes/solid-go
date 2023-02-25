@@ -26,7 +26,7 @@ func TestUserRepository_GetById(t *testing.T) {
 
 	mock.ExpectQuery("mocked sql querie")
 
-	r, err := repository.GetByID(11)
+	r, err := repository.GetUserByID(11)
 
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
