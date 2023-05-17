@@ -1,6 +1,8 @@
 package openclosed
 
-func TestEmail() {
+import "testing"
+
+func TestEmail(t *testing.T) {
 	htmlEmail := Email{
 		Type:    "Html",
 		Message: "<h1> Hello </h1>",
