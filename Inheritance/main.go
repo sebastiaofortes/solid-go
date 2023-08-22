@@ -33,4 +33,8 @@ func main() {
 
 	// Acessando diretamente os campos da classe pai através da classe filha
 	fmt.Printf("%s is a %s\n", d.Name, d.Breed)
+
+	//Polimorfismo por herança não funciona em GO
+	//var a = Animal{}
+	//a = d 
 }
