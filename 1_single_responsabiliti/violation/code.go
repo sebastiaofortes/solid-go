@@ -5,19 +5,19 @@ import (
 	"fmt"
 )
 
-type ProductDao struct {
+type Product struct {
 	conexao *sql.DB
 }
 
-func NewProductDao() (ProductDao, error) {
+func NewProduct() (Product, error) {
 	conexao, err := sql.Open("mysql", "datasource")
 	if err != nil {
-		return ProductDao{}, fmt.Errorf("Erro ao criar objeto")
+		return Product{}, fmt.Errorf("Erro ao criar objeto")
 	}
-	return ProductDao{conexao: conexao}, nil
+	return Product{conexao: conexao}, nil
 }
 
-func (p *ProductDao) ObterPreço(produtoID int64) (float64, error) {
+func (p *Product) ObterPreço(produtoID int64) (float64, error) {
 	// procuro dados no banco
 	consulta, err := p.conexao.Query("SELECT 'preço' FROM products WHERE id = ?", produtoID)
 	if err != nil {
@@ -32,7 +32,7 @@ func (p *ProductDao) ObterPreço(produtoID int64) (float64, error) {
 	return resultado, nil
 }
 
-func (p *ProductDao) calcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
+func (p *Product) calcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
 	
 	// procuro dados no banco
 	preço, _ := p.ObterPreço(produtoID)
