@@ -20,7 +20,7 @@ func (e HtmlEmail) Send() {
 
 }
 
-type SubHtml struct {
+type HtmlCSSEmail struct {
 	HtmlEmail
 }
 

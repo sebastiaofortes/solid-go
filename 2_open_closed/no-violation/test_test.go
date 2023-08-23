@@ -1,17 +1,19 @@
 package openclosed
 
-func TestEmail() {
+import "testing"
+
+func TestEmail(t *testing.T) {
 	htmlEmail := new(HtmlEmail)
 	htmlEmail.Message = "<h1> Hello </h1>"
 
 	txtEmail := new(TxtEmail)
 	txtEmail.Message = "Hello"
 
-	SubHtml := new(SubHtml)
-	SubHtml.Message = "<h1> Hello </h1>"
+	htmlCSSEmail := new(HtmlCSSEmail)
+	htmlCSSEmail.Message = "<h1> Hello </h1>"
 
 	SendMessage(txtEmail)
 	SendMessage(htmlEmail)
-	SendMessage(SubHtml)
+	SendMessage(htmlCSSEmail)
 
 }
