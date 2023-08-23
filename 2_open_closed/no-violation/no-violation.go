@@ -5,7 +5,7 @@ type Email interface {
 }
 
 type TxtEmail struct {
-	Message string
+	// All struct atributes
 }
 
 func (e TxtEmail) Send() {
@@ -13,7 +13,7 @@ func (e TxtEmail) Send() {
 }
 
 type HtmlEmail struct {
-	Message string
+	// All struct atributes
 }
 
 func (e HtmlEmail) Send() {

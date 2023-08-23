@@ -2,7 +2,7 @@ package openclosed
 
 type Email struct {
 	Type    string
-	Message string
+	// All struct atributes
 }
 
 func (e Email) SendrHtml() {

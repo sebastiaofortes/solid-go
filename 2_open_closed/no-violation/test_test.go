@@ -3,14 +3,11 @@ package openclosed
 import "testing"
 
 func TestEmail(t *testing.T) {
-	htmlEmail := new(HtmlEmail)
-	htmlEmail.Message = "<h1> Hello </h1>"
+	htmlEmail := HtmlEmail{}
 
-	txtEmail := new(TxtEmail)
-	txtEmail.Message = "Hello"
+	txtEmail := TxtEmail{}
 
-	htmlCSSEmail := new(HtmlCSSEmail)
-	htmlCSSEmail.Message = "<h1> Hello </h1>"
+	htmlCSSEmail := HtmlCSSEmail{}
 
 	SendMessage(txtEmail)
 	SendMessage(htmlEmail)
