@@ -4,7 +4,15 @@ import (
 	"strconv"
 )
 
-func ConverterNota(nota string) (float64, error) {
+type iTurma interface {
+	ObterNota(nomeAluno string) (string, error)
+}
+
+type Secretaria struct{
+	turma []iTurma
+}
+
+func converterNota(nota string) (float64, error) {
 	notaF, err := strconv.ParseFloat(nota, 64)
 	if err != nil {
 		return 0, err
@@ -12,16 +20,12 @@ func ConverterNota(nota string) (float64, error) {
 	return notaF, nil
 }
 
-type Turma interface {
-	ObterNota(nomeAluno string) (string, error)
-}
-
-func VerificarAluno(t Turma, aluno string) (string, error) {
-	nota, err := t.ObterNota(aluno)
+func (s Secretaria)VerificarAluno(t int32, aluno string) (string, error) {
+	nota, err := s.turma[t].ObterNota(aluno)
 	if err != nil {
 		return "", err
 	} else {
-		aprovado, err := ConverterNota(nota)
+		aprovado, err := converterNota(nota)
 		if err != nil {
 			return "", err
 		}

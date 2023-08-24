@@ -16,13 +16,15 @@ func TestA(t *testing.T) {
 		},
 	}
 
-	_, err := VerificarAluno(turma1, "Maria")
+	sec1 := Secretaria{turma: []iTurma{turma1}}
+
+	_, err := sec1.VerificarAluno(0, "Maria")
 	if err != nil {
 		t.Error(err)
 	}
 }
 
-//Fail: Liskov principle of substitution violated
+// Fail: Liskov principle of substitution violated
 func TestB(t *testing.T) {
 	turma2 := escola_b.Turma{
 		Alunos: []escola_b.Aluno{
@@ -32,7 +34,9 @@ func TestB(t *testing.T) {
 		},
 	}
 
-	_, err := VerificarAluno(turma2, "Maria")
+	sec2 := Secretaria{turma: []iTurma{turma2}}
+
+	_, err := sec2.VerificarAluno(0, "Maria")
 	if err != nil {
 		t.Error(err)
 	}

@@ -1,11 +1,15 @@
 package violation2
 
-type Turma interface {
+type iTurma interface {
 	ObterNota(nomeAluno string) (float64, error)
 }
 
-func VerificarAluno(t Turma, aluno string) (string, error) {
-	nota, err := t.ObterNota(aluno)
+type Secretaria struct{
+	turma []iTurma
+}
+
+func (s Secretaria)VerificarAluno(t int32, aluno string) (string, error) {
+	nota, err := s.turma[t].ObterNota(aluno)
 	if err != nil {
 		return "", err
 	} else {
