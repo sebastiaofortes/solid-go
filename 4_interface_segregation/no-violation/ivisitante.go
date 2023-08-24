@@ -1,6 +1,6 @@
 package interfacesegregation
 
-type VisitanteServiceInterface interface {
+type IVisitante interface {
 	BuscarProdutos(nome string) string
 	AdicionarAoCarrinho(productId int32) bool
 	//

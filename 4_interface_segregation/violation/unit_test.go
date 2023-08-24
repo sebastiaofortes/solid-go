@@ -7,14 +7,15 @@ import (
 )
 
 func TestVisitanteNaoPodeUsarCarrinho(t *testing.T) {
-	v := Visitante{}
+	var v IUsuario
+	v = &Visitante{}
 	r := v.BuscarProdutos("23")
 	assert.NotEmpty(t, r)
 }
 
 func TestVisitanteUsaCarrinho(t *testing.T) {
-	v := Visitante{}
-	v.BuscarProdutos("23")
+	var v IUsuario
+	v = &Visitante{}
 	ok := v.AdicionarAoCarrinho(23)
 
 	assert.Equal(t, true, ok)

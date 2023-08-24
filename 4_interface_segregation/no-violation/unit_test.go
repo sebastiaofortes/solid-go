@@ -6,14 +6,16 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVisitanteNaoPodeUsarCarrinho(t *testing.T) {
-	v := Visitante{}
+func TestVisitanteBuscaProdutos(t *testing.T) {
+	var v IVisitante
+	v = &Visitante{}
 	r := v.BuscarProdutos("23")
 	assert.NotEmpty(t, r)
 }
 
-func TestVisitanteUsaCarrinho(t *testing.T) {
-	v := Visitante{}
+func TestVisitanteAdicionaAoCarrinho(t *testing.T) {
+	var v IVisitante
+	v = &Visitante{}
 	v.BuscarProdutos("23")
 	ok := v.AdicionarAoCarrinho(23)
 

@@ -20,7 +20,3 @@ func (v *Visitante) AdicionarAoCarrinho(productId int32) bool {
 func (v* Visitante) FormaDePagamento(forma string) {
 
 }
-
-func (v* Visitante) GetNivelUsuario() {
-
-}

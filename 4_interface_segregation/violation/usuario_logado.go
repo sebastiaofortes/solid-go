@@ -25,9 +25,3 @@ func (u *UsuarioLogado) FormaDePagamento(forma string) {
 	// código
 	//
 }
-
-func (u *UsuarioLogado) GetNivelUsuario() {
-	//
-	// código
-	//
-}
