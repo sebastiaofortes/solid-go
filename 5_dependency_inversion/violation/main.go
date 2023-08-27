@@ -11,7 +11,7 @@ import (
 
 func main() {
 
-	repository := repository.NewUserRepository()
+	repository := repository.NewEmailRepository()
 	service := service.NewEmailService(repository)
 
 	_ = controller.NewEmailController(service)

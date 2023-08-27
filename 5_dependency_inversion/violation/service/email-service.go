@@ -5,7 +5,7 @@ import (
 )
 
 type EmailService struct {
-	repository repository.UserRepository
+	repository repository.EmailRepository
 }
 
 func (s *EmailService) SendEmailToUser(email string, message string) error {
@@ -16,7 +16,7 @@ func (s *EmailService) SendEmailToUser(email string, message string) error {
 	return nil
 }
 
-func NewEmailService(r *repository.UserRepository) *EmailService{
+func NewEmailService(r *repository.EmailRepository) *EmailService{
 	return &EmailService{
 		repository: *r,
 	}

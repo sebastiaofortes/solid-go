@@ -1,13 +1,13 @@
 package repository
 
-type UserRepository struct {
+type EmailRepository struct {
 }
 
-func NewUserRepository() *UserRepository {
-	return &UserRepository{}
+func NewEmailRepository() *EmailRepository {
+	return &EmailRepository{}
 }
 
-func (r *UserRepository) SendEmail(email string, message string) error {
+func (r *EmailRepository) SendEmail(email string, message string) error {
 	// send email to client...
 
 	return nil

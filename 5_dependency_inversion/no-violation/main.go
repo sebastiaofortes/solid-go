@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	r := repository.NewUserRepository()
+	r := repository.NewEmailRepository()
 
 	s := service.NewEmailService(r)
 
