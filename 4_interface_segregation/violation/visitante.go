@@ -14,6 +14,9 @@ func (v *Visitante) BuscarProdutos(nome string) string {
 }
 
 func (v *Visitante) AdicionarAoCarrinho(productId int32) bool {
+	//
+	// código
+	//
 	return false
 }
 
