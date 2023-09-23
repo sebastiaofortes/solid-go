@@ -17,7 +17,18 @@ func NewProduct() (Product, error) {
 	return Product{conexao: conexao}, nil
 }
 
-func (p *Product) ObterPreço(produtoID int64) (float64, error) {
+func (p *Product) CalcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
+
+	// procuro dados no banco
+	preço, _ := p.obterPreço(produtoID)
+
+	total := preço * float64(quantidade)
+
+	// retorna o resultado
+	return total, nil
+}
+
+func (p *Product) obterPreço(produtoID int64) (float64, error) {
 	// procuro dados no banco
 	consulta, err := p.conexao.Query("SELECT 'preço' FROM products WHERE id = ?", produtoID)
 	if err != nil {
@@ -30,16 +41,4 @@ func (p *Product) ObterPreço(produtoID int64) (float64, error) {
 
 	// retorna o resultado
 	return resultado, nil
-}
-
-func (p *Product) calcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
-	
-	// procuro dados no banco
-	preço, _ := p.ObterPreço(produtoID)
-
-	total := preço * float64(quantidade)
-
-
-	// retorna o resultado
-	return total, nil
 }

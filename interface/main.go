@@ -16,14 +16,14 @@ type Circle struct {
 	Radius float64
 }
 
-type Rectangle struct {
-	Width  float64
-	Height float64
-}
-
 // Implementação dos métodos da interface para Circle
 func (c Circle) Area() float64 {
 	return 3.14 * c.Radius * c.Radius
+}
+
+type Rectangle struct {
+	Width  float64
+	Height float64
 }
 
 // Implementação dos métodos da interface para Rectangle

@@ -31,15 +31,3 @@ func (p *ProductDao) ObterPreço(produtoID int64) (float64, error) {
 	// retorna o resultado
 	return resultado, nil
 }
-
-func (p *ProductDao) calcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
-	
-	// procuro dados no banco
-	preço, _ := p.ObterPreço(produtoID)
-
-	total := preço * float64(quantidade)
-
-
-	// retorna o resultado
-	return total, nil
-}

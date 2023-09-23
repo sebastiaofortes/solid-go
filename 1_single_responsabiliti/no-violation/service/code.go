@@ -13,7 +13,7 @@ func NewProductDao(d dao.ProductDao) (ProductService, error) {
 	return ProductService{d: d}, nil
 }
 
-func (p *ProductService) calcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
+func (p *ProductService) CalcularTotalCompra(quantidade int64, produtoID int64) (float64, error) {
 
 	// procuro dados no banco
 	preço, _ := p.d.ObterPreço(produtoID)
