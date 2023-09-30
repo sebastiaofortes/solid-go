@@ -12,14 +12,6 @@ type Secretaria struct{
 	turma []iTurma
 }
 
-func converterNota(nota string) (float64, error) {
-	notaF, err := strconv.ParseFloat(nota, 64)
-	if err != nil {
-		return 0, err
-	}
-	return notaF, nil
-}
-
 func (s Secretaria)VerificarAluno(t int32, aluno string) (string, error) {
 	nota, err := s.turma[t].ObterNota(aluno)
 	if err != nil {
@@ -36,3 +28,13 @@ func (s Secretaria)VerificarAluno(t int32, aluno string) (string, error) {
 		}
 	}
 }
+
+func converterNota(nota string) (float64, error) {
+	notaF, err := strconv.ParseFloat(nota, 64)
+	if err != nil {
+		return 0, err
+	}
+	return notaF, nil
+}
+
+
